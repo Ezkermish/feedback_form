@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import './FeedbackForm.css'; // Import CSS for styling
 
 const FeedbackForm = () => {
-
+const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    feedback: ''
+});
   return (
     <>
     <nav>
@@ -25,7 +29,7 @@ const FeedbackForm = () => {
             name="feedback"
             placeholder="Tu retroalimentación"
         ></textarea>
-        <button type="submit">Eviar retroalimentación</button>
+        <button type="submit">Enviar retroalimentación</button>
       </form>
     </>
   );
