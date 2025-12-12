@@ -14,6 +14,24 @@ const handleChange = (event) => {
         [name]: value
     });
 };
+const handleSubmit = (event) => {
+    event.preventDefault();
+    const confirmationMessage = `
+      Nombre: ${formData.name}
+      Correo electrónico: ${formData.email}
+      Comentarios: ${formData.feedback}
+    `;
+    const isConfirmed = window.confirm(`Por favor confirma tus detalles:\n\n${confirmationMessage}`);
+    if (isConfirmed) {
+      console.log('Enviando comentarios:', formData);
+      setFormData({
+        nombre: '',
+        correo_electronico: '',
+        comentarios: ''
+      });
+      alert('¡Gracias por tus valiosos comentarios!');
+    }
+  };
   return (
     <>
     <nav>
