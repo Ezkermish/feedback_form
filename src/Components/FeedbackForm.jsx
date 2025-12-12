@@ -5,7 +5,8 @@ const FeedbackForm = () => {
 const [formData, setFormData] = useState({
     name: '',
     email: '',
-    feedback: ''
+    feedback: '',
+    rating: ''
 });
 const handleChange = (event) => {
     const {name, value} = event.target;
@@ -20,6 +21,7 @@ const handleSubmit = (event) => {
       Nombre: ${formData.name}
       Correo electrónico: ${formData.email}
       Comentarios: ${formData.feedback}
+      Calificacion: ${formData.rating}
     `;
     const isConfirmed = window.confirm(`Por favor confirma tus detalles:\n\n${confirmationMessage}`);
     if (isConfirmed) {
@@ -27,11 +29,13 @@ const handleSubmit = (event) => {
       setFormData({
         nombre: '',
         correo_electronico: '',
-        comentarios: ''
+        comentarios: '',
+        rating: ''
       });
       alert('¡Gracias por tus valiosos comentarios!');
     }
   };
+  
   return (
     <>
     <nav>
@@ -60,6 +64,39 @@ const handleSubmit = (event) => {
             value={formData.feedback}
             onChange={handleChange}
         ></textarea>
+         <div style={{display:'flex',gap:'10px',flexDirection:'column'}}>
+                    <span>Califícanos:</span>
+                    <p><input
+                        type="radio"
+                        name="rating"
+                        value="1"
+                        onChange={handleChange}
+                    /> 1</p>
+                  <p>  <input
+                        type="radio"
+                        name="rating"
+                        value="2"
+                        onChange={handleChange}
+                    /> 2</p>
+                  <p>  <input
+                        type="radio"
+                        name="rating"
+                        value="3"
+                        onChange={handleChange}
+                    /> 3</p>
+                   <p> <input
+                        type="radio"
+                        name="rating"
+                        value="4"
+                        onChange={handleChange}
+                    /> 4</p>
+                    <p><input
+                        type="radio"
+                        name="rating"
+                        value="5"
+                        onChange={handleChange}
+                    /> 5</p>
+                </div>
         <button type="submit">Enviar retroalimentación</button>
       </form>
     </>
