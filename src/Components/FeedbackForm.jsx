@@ -26,15 +26,21 @@ const handleChange = (event) => {
             type="text"
             name="name"
             placeholder="Tu nombre"
+            value={formData.name}
+            onChange={handleChange}
             />
         <input 
             type="email"
             name="email"
             placeholder="Tu Correo Electrónico"
+            value={formData.email}
+            onChange={handleChange}
         />
         <textarea
             name="feedback"
             placeholder="Tu retroalimentación"
+            value={formData.feedback}
+            onChange={handleChange}
         ></textarea>
         <button type="submit">Enviar retroalimentación</button>
       </form>
